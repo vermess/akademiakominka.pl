@@ -1,0 +1,91 @@
+.burger {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 40px;
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    line-height: 100px;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        outline: 0 !important;
+        box-shadow: none;
+        border: none;
+    }
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        display: none;
+    }
+}
+
+.burger__icon {
+    font-size: 40px;
+}
+
+.burger--active~.nav__list {
+    display: block;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(23, 23, 23, 0.95);
+    text-align: center;
+
+    & .nav__listitem {
+        line-height: 50px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        @media (orientation: landscape) {
+            line-height: 30px;
+        }
+
+        @media (min-height: 360px) and (orientation: landscape) {
+            line-height: 35px;
+        }
+
+        @media (min-height: 410px) and (orientation: landscape) {
+            line-height: 40px;
+        }
+
+        & .nav__link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+}
+
+
+.burger__angle-down {
+    position: absolute;
+    right: 40px;
+    top: 0;
+    font-size: 20px;
+    line-height: 50px;
+    color: #fff;
+    transition: 0.5s;
+
+    @media (orientation: landscape) {
+        line-height: 30px;
+    }
+
+    @media (min-height: 360px) and (orientation: landscape) {
+        line-height: 35px;
+    }
+
+    @media (min-height: 410px) and (orientation: landscape) {
+        line-height: 40px;
+    }
+
+    @media (min-width: 1024px) {
+        line-height: 100px;
+        right: 0;
+    }
+}

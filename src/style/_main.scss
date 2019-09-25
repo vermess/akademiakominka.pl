@@ -1,0 +1,50 @@
+.main {
+
+  h1,
+  h2,
+  h3 {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 15px;
+  }
+
+  h1 {
+    @media (min-width: 1024px) and (orientation: landscape) {
+      font-size: 30px;
+      line-height: 60px;
+    }
+  }
+
+  p {
+    line-height: 22px;
+    margin: 30px 15px;
+  }
+
+  @media (min-width: 1024px) and (orientation: landscape) {
+    width: 70%;
+    margin: 50px auto;
+  }
+
+}
+
+.about,
+.contact,
+.gallery,
+.stoves {
+  padding-top: 100px;
+  text-align: center;
+
+  @media (min-width: 1024px) and (orientation: landscape) {
+    text-align: left;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@import "main-contact";
+@import "main-about";
+@import "main-gallery";
+@import "main-stoves";
+@import "main-hoxter-romotop";

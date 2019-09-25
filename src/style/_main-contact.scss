@@ -1,0 +1,57 @@
+.contact {
+    text-align: center;
+
+    p {
+        line-height: 10px;
+        margin: 15px auto;
+    }
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        float: left;
+        width: 30%;
+    }
+}
+
+.contact p:nth-of-type(1),
+.contact p:nth-of-type(4),
+.contact p:nth-of-type(6),
+.contact p:nth-of-type(10),
+.contact p:nth-of-type(13) {
+    margin-top: 40px;
+}
+
+.contact p:nth-of-type(6),
+.contact p:nth-of-type(7),
+.contact p:nth-of-type(8),
+.contact p:nth-of-type(9) {
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+.contact p:nth-of-type(8) {
+    margin-top: 20px;
+}
+
+.map {
+    text-align: center;
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        float: left;
+        width: 70%;
+        margin: 150px 0;
+        text-align: center;
+    }
+}
+
+.map__iframe {
+    text-align: center;
+    width: 95vw;
+    height: 90vh;
+    margin: 20px 0;
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        width: 90%;
+        height: 50vh;
+    }
+}

@@ -1,0 +1,24 @@
+@import "popup";
+@import "slider";
+@import "nav";
+@import "burger";
+@import "main";
+@import "backtothetop";
+@import "footer";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+:root {
+  --navHeight: 100px;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,35 @@
+.back {
+  position: fixed;
+  bottom: 18vh;
+  right: 20px;
+  background-color: #222222;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  color: #fff;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+
+  &.visible {
+    display: block;
+  }
+
+  .back__arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+
+  }
+
+  @media (orientation: landscape) {
+    bottom: 29vh;
+  }
+
+  @media (min-width: 1024px) and (orientation: landscape) {
+    bottom: 100px;
+  }
+}

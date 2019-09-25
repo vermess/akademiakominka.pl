@@ -1,0 +1,66 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+
+  @media (min-width: 768px) {}
+
+  p {
+    line-height: 25px;
+  }
+}
+
+.footer__dotation {
+  flex-basis: 100%;
+
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+}
+
+.footer__link {
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: grey;
+  }
+}
+
+.footer__uelogo,
+.footer__prowlogo {
+  width: 200px;
+  padding: 30px 0;
+
+  @media (min-width: 768px) {
+    flex-basis: 30%;
+  }
+}
+
+.footer__description {
+  padding: 0 5px;
+
+  @media (min-width: 768px) {
+    flex-basis: 30%;
+  }
+}
+
+.footer__copyrights {
+  flex-basis: 100%;
+}
+
+.footer__copytext {
+  padding: 0 5px;
+}
+
+.footer__realization {
+  padding: 15px 0;
+}

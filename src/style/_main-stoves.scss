@@ -1,0 +1,24 @@
+.stoves__container {
+    text-align: center;
+
+    img {
+        margin: 20px 0;
+        width: 80vw;
+
+        @media (min-width: 1024px) and (orientation: landscape) {
+            margin: 60px 100px;
+            width: 400px;
+            height: 300px;
+        }
+    }
+
+    img:nth-of-type(3) {
+        width: 200px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+        text-transform: uppercase;
+    }
+}

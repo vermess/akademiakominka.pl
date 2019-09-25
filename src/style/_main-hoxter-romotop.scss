@@ -1,0 +1,65 @@
+.columnone {
+    text-align: center;
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        position: relative;
+        float: left;
+        height: 400px;
+        width: 30%;
+        margin-bottom: 50px;
+        border: none;
+        text-align: center;
+    }
+
+    img {
+        width: 300px;
+
+        @media (min-width: 1024px) and (orientation: landscape) {
+            width: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.columntwo {
+    text-align: center;
+
+    @media (min-width: 1024px) and (orientation: landscape) {
+        float: left;
+        width: 70%;
+        margin-bottom: 50px;
+        line-height: 1.5rem;
+        height: 400px;
+    }
+
+    p {
+        line-height: 28px;
+        margin: 0 15px;
+
+        @media (min-width: 1024px) and (orientation: landscape) {
+            margin: 0;
+            line-height: 40px;
+        }
+    }
+
+    p:nth-of-type(1) {
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin: 20px 0;
+
+        @media (min-width: 1024px) and (orientation: landscape) {
+            font-size: 3rem;
+        }
+    }
+}
+
+.stoves__logo {
+    width: 150px;
+    height: 209px;
+
+    display: block;
+    margin: 10px auto;
+}
