@@ -8,6 +8,7 @@ const del = require('del');
 const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
 const autoprefixer = require('autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('cssnano');
 
 const config = {
@@ -35,20 +36,27 @@ const config = {
 
 function jsTask(done) {
     src(config.app.js)
+        .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
         .pipe(concat('main.bundle.js'))
         .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(dest(config.dist.js))
     done();
 }
 
 function cssTask(done) {
     src(config.app.scss)
+        .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
         .pipe(rename({ suffix: '.bundle' }))
-        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(postcss([autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }), cssnano()]))
+        .pipe(sourcemaps.write('./'))
         .pipe(dest(config.dist.css))
     done();
 }
