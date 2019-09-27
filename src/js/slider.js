@@ -7,6 +7,9 @@ let direction = "right";
 const allSlides = document.getElementsByClassName("slider__slide");
 const allDots = document.getElementsByClassName("slider__dot");
 const isSlider = document.querySelector(".slider");
+let filesSelected;
+const media = window.matchMedia("(orientation: landscape) ");
+const body = document.querySelector('body');
 
 const files = [
     'slide-01.jpg',
@@ -14,9 +17,22 @@ const files = [
     'slide-03.jpg',
 ]
 
+const filesSmall = [
+    'small-slide-01.jpg',
+    'small-slide-02.jpg',
+    'small-slide-03.jpg',
+]
+
 const addSlides = () => {
+    const elToDelete = document.querySelectorAll('.slider__slide');
+    if (elToDelete) {
+        for (const el of elToDelete) {
+            el.remove();
+        }
+    }
+
     const path = './slider/';
-    files.forEach(slajd => {
+    filesSelected.forEach(slajd => {
         const elementDiv = document.createElement("div");
         const elementImg = document.createElement("img");
 
@@ -25,6 +41,16 @@ const addSlides = () => {
         document.querySelector('.slider').appendChild(elementDiv);
         document.querySelector('.slider__slide:last-of-type').appendChild(elementImg);
     })
+}
+const setBg = (media) => {
+    if (media.matches) {
+        filesSelected = files;
+    }
+    else {
+        filesSelected = filesSmall;
+    }
+    addSlides();
+    allSlides[slideNumber].classList.add("slider__slide--active");
 }
 
 const addDots = (dots) => {
@@ -108,10 +134,10 @@ const changeDot = (e) => {
 let time = null;
 
 if (isSlider) {
-    addSlides();
+    setBg(media);
+    media.addListener(setBg);
     addDots(files.length);
     allDots[0].classList.add("slider__slide--active");
-    allSlides[0].classList.add("slider__slide--active");
 
     time = setInterval(changeSlidePlus, intervalTime);
 
