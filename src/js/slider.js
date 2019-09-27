@@ -6,6 +6,7 @@ let slideNumber = 0;
 let direction = "right";
 const allSlides = document.getElementsByClassName("slider__slide");
 const allDots = document.getElementsByClassName("slider__dot");
+const isSlider = document.querySelector(".slider");
 
 const files = [
     'slide-01.jpg',
@@ -94,7 +95,6 @@ const changeDot = (e) => {
     activeDot.classList.remove("slider__slide--active");
     activeSlide.classList.remove("slider__slide--active");
     let thisDot = e.target;
-    console.log(e.target)
     thisDot.classList.add("slider__slide--active");
     let sliderLength = document.getElementsByClassName("slider__dot");
     sliderLength = [...sliderLength];
@@ -105,13 +105,17 @@ const changeDot = (e) => {
     time = setInterval(changeSlidePlus, intervalTime);
 }
 
-addSlides();
-addDots(files.length);
-allDots[0].classList.add("slider__slide--active");
-allSlides[0].classList.add("slider__slide--active");
+let time = null;
 
-let time = setInterval(changeSlidePlus, intervalTime);
+if (isSlider) {
+    addSlides();
+    addDots(files.length);
+    allDots[0].classList.add("slider__slide--active");
+    allSlides[0].classList.add("slider__slide--active");
 
-slideRight.addEventListener('click', changeSlidePlus);
-slideLeft.addEventListener('click', changeSlideMinus);
-dots.addEventListener('click', changeDot)
+    time = setInterval(changeSlidePlus, intervalTime);
+
+    slideRight.addEventListener('click', changeSlidePlus);
+    slideLeft.addEventListener('click', changeSlideMinus);
+    dots.addEventListener('click', changeDot)
+}
