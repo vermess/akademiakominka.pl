@@ -34,7 +34,7 @@ let getScroll = () => {
             document.querySelector(".active").style.top = "70px";
 
         }
-        popup.classList.remove("popup--active");
+        if (popup) popup.classList.remove("popup--active");
 
     } else if (window.pageYOffset <= 0) {
         nav.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
