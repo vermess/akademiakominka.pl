@@ -115,6 +115,7 @@ const changeSlideMinus = () => {
 }
 
 const changeDot = (e) => {
+    if (e.target.classList.contains("slider__dots")) return;
     clearInterval(time);
     const activeDot = document.querySelector(".slider__dot.slider__slide--active");
     const activeSlide = document.querySelector(".slider__slide.slider__slide--active");
