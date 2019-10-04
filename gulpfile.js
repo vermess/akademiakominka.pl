@@ -21,6 +21,8 @@ const config = {
         gallery: './src/gallery/*.*',
         katalog: './src/katalog/*.*',
         slider: './src/slider/*.*',
+        lightbox: './src/lightbox/*.*',
+        lightboxImages: './src/images/*.*',
         html: './src/*.html'
     },
     dist: {
@@ -30,6 +32,8 @@ const config = {
         css: './dist/css',
         gallery: './dist/gallery',
         katalog: './dist/katalog',
+        lightbox: './dist/lightbox',
+        lightboxImages: './dist/images',
         slider: './dist/slider'
     }
 }
@@ -78,6 +82,16 @@ function katalogTask(done) {
         .pipe(dest(config.dist.katalog))
     done();
 }
+function lightboxTask(done) {
+    src(config.app.lightbox)
+        .pipe(dest(config.dist.lightbox))
+    done();
+}
+function lightboxImagesTask(done) {
+    src(config.app.lightboxImages)
+        .pipe(dest(config.dist.lightboxImages))
+    done();
+}
 
 function sliderTask(done) {
     src(config.app.slider)
@@ -97,6 +111,8 @@ function watchFiles() {
     watch(config.app.images, series(imagesTask, reload));
     watch(config.app.gallery, series(galleryTask, reload));
     watch(config.app.katalog, series(katalogTask, reload));
+    watch(config.app.lightbox, series(lightboxTask, reload));
+    watch(config.app.lightboxImages, series(lightboxImagesTask, reload));
     watch(config.app.slider, series(sliderTask, reload));
     watch(config.app.html, series(templateTask, reload));
 }
@@ -119,5 +135,5 @@ function cleanUp() {
     return del([config.dist.base]);
 }
 
-exports.dev = parallel(jsTask, cssTask, imagesTask, galleryTask, katalogTask, sliderTask, templateTask, watchFiles, liveReload);
-exports.build = series(cleanUp, parallel(jsTask, cssTask, imagesTask, galleryTask, katalogTask, sliderTask, templateTask));
+exports.dev = parallel(jsTask, cssTask, imagesTask, galleryTask, katalogTask, lightboxTask, lightboxImagesTask, sliderTask, templateTask, watchFiles, liveReload);
+exports.build = series(cleanUp, parallel(jsTask, cssTask, imagesTask, galleryTask, katalogTask, lightboxTask, lightboxImagesTask, sliderTask, templateTask));
