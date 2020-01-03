@@ -35,18 +35,19 @@
 
 .map {
     text-align: center;
+    height: 90vh;
 
     @media (min-width: 1024px) and (orientation: landscape) {
         float: left;
         width: 70%;
-        margin: 150px 0;
+        margin: 150px 0 0;
         text-align: center;
     }
 }
 
 .map__iframe {
     text-align: center;
-    width: 95vw;
+    width: 100%;
     height: 90vh;
     margin: 20px 0;
 
